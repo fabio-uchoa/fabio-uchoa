@@ -18,16 +18,8 @@
 ### 📊 GitHub Stats
 
 <p align="center">
-  <img
-    height="180em"
-    src="https://github-readme-stats-salesp07.vercel.app/api?username=fabio-uchoa&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"
-    alt="fabio-uchoa GitHub Stats"
-  />
-  <img
-    height="180em"
-    src="https://github-readme-stats-salesp07.vercel.app/api/top-langs/?username=fabio-uchoa&show_icons=true&theme=tokyonight&layout=compact&langs_count=8"
-    alt="fabio-uchoa Top Languages"
-  />
+  <img height="180em" src="./assets/stats.svg" alt="GitHub Stats" />
+  <img height="180em" src="./assets/top-langs.svg" alt="Top Languages" />
 </p>
 
 ---
