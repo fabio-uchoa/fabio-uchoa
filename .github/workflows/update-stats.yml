@@ -1,0 +1,37 @@
+name: Update GitHub Stats Cards
+
+on:
+  schedule:
+    - cron: "0 */8 * * *"  # atualiza a cada 8 horas
+  workflow_dispatch:         # permite rodar manualmente
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Stats card
+        uses: readme-tools/github-readme-stats-action@v1
+        with:
+          card: stats
+          options: "username=fabio-uchoa&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"
+          path: assets/stats.svg
+          token: ${{ secrets.GRS_TOKEN }}
+
+      - name: Top languages card
+        uses: readme-tools/github-readme-stats-action@v1
+        with:
+          card: top-langs
+          options: "username=fabio-uchoa&theme=tokyonight&layout=compact&langs_count=8&hide=Jupyter%20Notebook&size_weight=0.5&count_weight=0.5"
+          path: assets/top-langs.svg
+          token: ${{ secrets.GRS_TOKEN }}
+
+      - name: Commit cards
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          mkdir -p assets
+          git add assets/*.svg
+          git commit -m "chore: update stats cards" || exit 0
+          git push
